@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Form from "./component/Form.js";
 import TodoList from "./component/TodoList.js";
 
@@ -19,23 +19,13 @@ function App() {
 
   // local
 
-  const saveLocalTodos = () => {
+  const saveLocalTodos = useCallback(() => {
     window.localStorage.setItem("todos", JSON.stringify(todoitemsAreHere));
-  };
+  }, [todoitemsAreHere]);
 
-  // function to filter
-  const filterHandler = (e) => {
-    switch (status) {
-      case "Done":
-        setFilterTheView(todoitemsAreHere.filter((x) => x.completed === true));
-        break;
-      case "On List":
-        setFilterTheView(todoitemsAreHere.filter((x) => x.completed === false));
-        break;
-      default:
-        setFilterTheView(todoitemsAreHere);
-    }
-  };
+  // const saveLocalTodos = () => {
+  //   window.localStorage.setItem("todos", JSON.stringify(todoitemsAreHere));
+  // };
 
   const getLocalTodos = () => {
     if (localStorage.getItem("todos") === "null") {
@@ -45,6 +35,41 @@ function App() {
       setTodoitemsAreHere(todoLocal);
     }
   };
+
+  // function to filter
+
+  const filterHandler = useCallback(
+    (e) => {
+      switch (status) {
+        case "Done":
+          setFilterTheView(
+            todoitemsAreHere.filter((x) => x.completed === true)
+          );
+          break;
+        case "On List":
+          setFilterTheView(
+            todoitemsAreHere.filter((x) => x.completed === false)
+          );
+          break;
+        default:
+          setFilterTheView(todoitemsAreHere);
+      }
+    },
+    [status, todoitemsAreHere]
+  );
+
+  // const filterHandler = (e) => {
+  //   switch (status) {
+  //     case "Done":
+  //       setFilterTheView(todoitemsAreHere.filter((x) => x.completed === true));
+  //       break;
+  //     case "On List":
+  //       setFilterTheView(todoitemsAreHere.filter((x) => x.completed === false));
+  //       break;
+  //     default:
+  //       setFilterTheView(todoitemsAreHere);
+  //   }
+  // };
 
   // useEffect
   useEffect(() => {
@@ -58,7 +83,7 @@ function App() {
     );
     saveLocalTodos();
     filterHandler();
-  }, [todoitemsAreHere, filterTheView, filterHandler, saveLocalTodos]);
+  }, [todoitemsAreHere, filterTheView, saveLocalTodos, filterHandler]);
 
   return (
     <div className="App">
