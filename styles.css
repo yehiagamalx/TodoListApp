@@ -1,0 +1,55 @@
+body {
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+}
+
+.the-form {
+  display: flex;
+  justify-content: center;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.SingleTodo {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.fa-check-square {
+  border: none;
+  cursor: pointer;
+}
+
+.fa-trash {
+  border: none;
+  cursor: pointer;
+}
+
+.SingleTodo > li {
+  list-style-type: none;
+}
+
+.trash-btn {
+  border: none;
+  cursor: pointer;
+}
+
+.personal {
+  color: green;
+}
+
+.work {
+  color: brown;
+}
+
+.home {
+  color: blueviolet;
+}
+
+.other {
+  color: darkgoldenrod;
+}
