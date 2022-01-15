@@ -17,33 +17,10 @@ function App() {
   const [status, setStatus] = useState("all");
   const [filterTheView, setFilterTheView] = useState([]);
 
-  // useEffect
-  useEffect(() => {
-    console.log("useEffect Running for the first time");
-    getLocalTodos();
-  }, []);
-
-  useEffect(() => {
-    console.log(
-      "useEffect ruuning everychange in todoitemsAreHere or filterTheView"
-    );
-    saveLocalTodos();
-    filterHandler();
-  }, [todoitemsAreHere, filterTheView, filterHandler, saveLocalTodos]);
-
   // local
 
   const saveLocalTodos = () => {
     window.localStorage.setItem("todos", JSON.stringify(todoitemsAreHere));
-  };
-
-  const getLocalTodos = () => {
-    if (localStorage.getItem("todos") === "null") {
-      localStorage.setItem("todos", JSON.stringify([]));
-    } else {
-      let todoLocal = JSON.parse(window.localStorage.getItem("todos"));
-      setTodoitemsAreHere(todoLocal);
-    }
   };
 
   // function to filter
@@ -59,6 +36,29 @@ function App() {
         setFilterTheView(todoitemsAreHere);
     }
   };
+
+  const getLocalTodos = () => {
+    if (localStorage.getItem("todos") === "null") {
+      localStorage.setItem("todos", JSON.stringify([]));
+    } else {
+      let todoLocal = JSON.parse(window.localStorage.getItem("todos"));
+      setTodoitemsAreHere(todoLocal);
+    }
+  };
+
+  // useEffect
+  useEffect(() => {
+    console.log("useEffect Running for the first time");
+    getLocalTodos();
+  }, []);
+
+  useEffect(() => {
+    console.log(
+      "useEffect ruuning everychange in todoitemsAreHere or filterTheView"
+    );
+    saveLocalTodos();
+    filterHandler();
+  }, [todoitemsAreHere, filterTheView, filterHandler, saveLocalTodos]);
 
   return (
     <div className="App">
