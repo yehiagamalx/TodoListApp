@@ -29,7 +29,7 @@ function App() {
     );
     saveLocalTodos();
     filterHandler();
-  }, [todoitemsAreHere, filterTheView]);
+  }, [todoitemsAreHere, filterTheView, filterHandler, saveLocalTodos]);
 
   // local
 
