@@ -58,19 +58,6 @@ function App() {
     [status, todoitemsAreHere]
   );
 
-  // const filterHandler = (e) => {
-  //   switch (status) {
-  //     case "Done":
-  //       setFilterTheView(todoitemsAreHere.filter((x) => x.completed === true));
-  //       break;
-  //     case "On List":
-  //       setFilterTheView(todoitemsAreHere.filter((x) => x.completed === false));
-  //       break;
-  //     default:
-  //       setFilterTheView(todoitemsAreHere);
-  //   }
-  // };
-
   // useEffect
   useEffect(() => {
     console.log("useEffect Running for the first time");
@@ -83,7 +70,7 @@ function App() {
     );
     saveLocalTodos();
     filterHandler();
-  }, [todoitemsAreHere, filterTheView, saveLocalTodos, filterHandler]);
+  }, [saveLocalTodos, filterHandler]);
 
   return (
     <div className="App">
