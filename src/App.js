@@ -19,13 +19,17 @@ function App() {
 
   // useEffect
   useEffect(() => {
+    console.log("useEffect Running for the first time");
     getLocalTodos();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
+    console.log(
+      "useEffect ruuning everychange in todoitemsAreHere or filterTheView"
+    );
     saveLocalTodos();
     filterHandler();
-  }, [todoitemsAreHere, filterTheView]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [todoitemsAreHere, filterTheView]);
 
   // local
 
