@@ -20,12 +20,12 @@ function App() {
   // useEffect
   useEffect(() => {
     getLocalTodos();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     saveLocalTodos();
     filterHandler();
-  }, [todoitemsAreHere, filterTheView]);
+  }, [todoitemsAreHere, filterTheView]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // local
 
