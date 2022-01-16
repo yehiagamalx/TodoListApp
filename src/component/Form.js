@@ -54,20 +54,26 @@ function Form({
 
           <div className="category-group" onChange={HandleTodoCat}>
             <label>
-              <input type="checkbox" value="personal" id="personal" />
+              <input
+                type="radio"
+                name="action"
+                value="personal"
+                id="personal"
+              />
               Personal
             </label>
 
             <label>
-              <input type="checkbox" value="work" id="work" /> Work
+              <input type="radio" name="action" value="work" id="work" /> Work
             </label>
 
             <label>
-              <input type="checkbox" value="home" id="home" /> Home
+              <input type="radio" name="action" value="home" id="home" /> Home
             </label>
 
             <label>
-              <input type="checkbox" value="other" id="other" /> Other
+              <input type="radio" name="action" value="other" id="other" />{" "}
+              Other
             </label>
           </div>
 
