@@ -23,10 +23,6 @@ function App() {
     window.localStorage.setItem("todos", JSON.stringify(todoitemsAreHere));
   }, [todoitemsAreHere]);
 
-  // const saveLocalTodos = () => {
-  //   window.localStorage.setItem("todos", JSON.stringify(todoitemsAreHere));
-  // };
-
   const getLocalTodos = () => {
     if (localStorage.getItem("todos") === "null") {
       localStorage.setItem("todos", JSON.stringify([]));
@@ -37,7 +33,6 @@ function App() {
   };
 
   // function to filter
-
   const filterHandler = useCallback(
     (e) => {
       switch (status) {
@@ -62,6 +57,11 @@ function App() {
   useEffect(() => {
     console.log("useEffect Running for the first time");
     getLocalTodos();
+    const preventFilterNull = () => {
+      if (filterTheView === null) {
+        setFilterTheView([""]);
+      }
+    };
   }, []);
 
   useEffect(() => {
