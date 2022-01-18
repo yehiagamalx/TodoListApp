@@ -24,7 +24,7 @@ function App() {
   }, [todoitemsAreHere]);
 
   const getLocalTodos = () => {
-    if (localStorage.getItem("todos") === "null") {
+    if (localStorage.getItem("todos") === null) {
       localStorage.setItem("todos", JSON.stringify([]));
     } else {
       let todoLocal = JSON.parse(window.localStorage.getItem("todos"));
@@ -55,22 +55,19 @@ function App() {
 
   // useEffect
   useEffect(() => {
-    console.log("useEffect Running for the first time");
+    console.log("useEffect ruuning everychange in  filterTheView");
+    filterHandler();
+  }, [filterHandler]);
+
+  useEffect(() => {
+    console.log("useEffect Running for the first time with get local function");
     getLocalTodos();
-    const preventFilterNull = () => {
-      if (filterTheView === null) {
-        setFilterTheView([""]);
-      }
-    };
   }, []);
 
   useEffect(() => {
-    console.log(
-      "useEffect ruuning everychange in todoitemsAreHere or filterTheView"
-    );
+    console.log("useEffect ruuning everychange in saveLocalTodos");
     saveLocalTodos();
-    filterHandler();
-  }, [saveLocalTodos, filterHandler]);
+  }, [saveLocalTodos]);
 
   return (
     <div className="App">
