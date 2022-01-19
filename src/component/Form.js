@@ -41,6 +41,7 @@ function Form({
   const StatusHandler = (e) => {
     setStatus(e.target.value);
   };
+
   return (
     <div className="the-form">
       <form>
