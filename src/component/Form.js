@@ -23,6 +23,7 @@ function Form({
   };
 
   //Second Function will handle Submit Button
+
   const HandleSumbit = (event) => {
     event.preventDefault();
     setTodoitemsAreHere([
@@ -34,17 +35,34 @@ function Form({
         id: nanoid(),
       },
     ]);
-    setInputText("");
-    setTodoCat("");
   };
   // function StatusHandler
   const StatusHandler = (e) => {
     setStatus(e.target.value);
   };
 
+  // function handle validation
+
+  const isValid = (event) => {
+    event.preventDefault();
+    if (inputText === "" || todoCat === "") {
+      alert("please type your to-do and select Cat");
+    } else {
+      HandleSumbit(event);
+      setInputText("");
+      setTodoCat("");
+      {
+        event.target[1].checked = false;
+        event.target[1].checked = false;
+        event.target[2].checked = false;
+        event.target[3].checked = false;
+        event.target[4].checked = false;
+      }
+    }
+  };
   return (
     <div className="the-form">
-      <form>
+      <form onSubmit={isValid}>
         <div className="form-add-item">
           <input
             type="text"
@@ -78,9 +96,7 @@ function Form({
             </label>
           </div>
 
-          <button type="input" onClick={HandleSumbit}>
-            Add
-          </button>
+          <button type="input">Add</button>
         </div>
 
         <div className="div main-filter">
