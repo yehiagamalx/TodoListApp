@@ -51,13 +51,14 @@ function Form({
       HandleSumbit(event);
       setInputText("");
       setTodoCat("");
-      {
+      let resetOptions = () => {
         event.target[1].checked = false;
         event.target[1].checked = false;
         event.target[2].checked = false;
         event.target[3].checked = false;
         event.target[4].checked = false;
-      }
+      };
+      resetOptions();
     }
   };
   return (
