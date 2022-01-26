@@ -22,34 +22,20 @@ function SingleTodo({ everytodo, TodoitemsAreHere, setTodoitemsAreHere }) {
     setTodoitemsAreHere(TodoitemsAreHere.filter((x) => x.id !== everytodo.id));
   };
 
-  function catColor() {
-    if (everytodo.cat === "personal") {
-      return "personal";
-    } else if (everytodo.cat === "work") {
-      return "work";
-    } else if (everytodo.cat === "home") {
-      return "home";
-    } else if (everytodo.cat === "other") {
-      return "other";
-    } else {
-      return "";
-    }
-  }
-
   return (
     <div className="SingleTodo">
       <input type="checkbox" onClick={DoneHnadler} />
+
       <li
-        className={`li-todo ${
-          everytodo.completed ? "completed" : ""
-        } ${catColor()}`}
+        className={`li-todo ${everytodo.completed ? "completed" : ""}  `}
+        style={{ color: `${everytodo.color}` }}
       >
         <p>
           {everytodo.text} [{everytodo.cat}]
         </p>
       </li>
       <button onClick={DeleteHandler} className="fas trash-btn">
-        Delete
+        <i className="fas fa-trash-alt"></i>
       </button>
     </div>
   );

@@ -7,6 +7,7 @@ body {
 .the-form {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 .completed {
@@ -53,3 +54,95 @@ body {
 .other {
   color: darkgoldenrod;
 }
+
+/* new styling */
+/* body {
+  background-color: antiquewhite;
+  height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  height: 100vh;
+}
+
+.App {
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-side {
+  display: flex;
+  background-color: cornsilk;
+  width: 70%;
+  height: 100%;
+}
+
+.the-form {
+  display: flex;
+  justify-content: center;
+}
+
+.form-add-item > input,
+.form-add-item > button {
+  width: 100%;
+}
+
+.todos-List-div {
+  width: 100%;
+}
+
+.todos-List-div > ul {
+  columns: 3;
+  -moz-columns: 3;
+  -webkit-columns: 3;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.SingleTodo {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.fas {
+  border: none;
+  cursor: pointer;
+  background-color: cornsilk !important;
+}
+
+.SingleTodo > li {
+  list-style-type: none;
+}
+
+.personal {
+  color: green;
+}
+
+.work {
+  color: brown;
+}
+
+.home {
+  color: blueviolet;
+}
+
+.other {
+  color: darkgoldenrod;
+} */

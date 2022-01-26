@@ -3,7 +3,7 @@ import SingleTodo from "./SingleTodo";
 
 function TodoList({ todoitemsAreHere, setTodoitemsAreHere, filterTheView }) {
   return (
-    <div className="todoList-Li">
+    <div className="todos-List-div">
       <ul>
         {filterTheView.map((everytodo) => (
           <SingleTodo
