@@ -103,25 +103,18 @@ function Form({
     <div className="the-form">
       {/* here we create categroies */}
       <div>
-        <form onSubmit={CreateCats}>
+        <form onSubmit={CreateCats} className="cat-form">
           <input
             type="text"
             placeholder="type your cat"
             value={inputCat}
             onChange={HandleinputCat}
           />
-          <input
-            type="text"
-            value={catColor}
-            onChange={HandleCatColor}
-            placeholder="type a color like red, blue etc.. "
-          />
+          <input type="color" value={catColor} onChange={HandleCatColor} />
           <button>create</button>
         </form>
       </div>
       {/* here we create categroies */}
-      <br />
-
       <form onSubmit={isValid}>
         <div className="form-add-item">
           <input
