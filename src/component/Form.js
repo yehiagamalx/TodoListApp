@@ -54,6 +54,16 @@ function Form({
   };
 
   // function handle validation
+  const isValidCat = (event) => {
+    event.preventDefault();
+    if (inputCat === "") {
+      alert("please type your Cat");
+    } else {
+      CreateCats(event);
+      setInputCat("");
+      setCatColor("");
+    }
+  };
 
   const isValid = (event) => {
     event.preventDefault();
@@ -90,8 +100,6 @@ function Form({
         color: catColor,
       },
     ]);
-    setInputCat("");
-    setCatColor("");
   };
 
   const HandleCatColor = (event) => {
@@ -103,7 +111,7 @@ function Form({
     <div className="the-form">
       {/* here we create categroies */}
       <div>
-        <form onSubmit={CreateCats} className="cat-form">
+        <form onSubmit={isValidCat} className="cat-form">
           <input
             type="text"
             placeholder="type your cat"
